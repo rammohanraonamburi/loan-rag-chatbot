@@ -1,6 +1,6 @@
-# 🏦 Loan Application RAG Chatbot
+# 🏦 Loan Application Chatbot
 
-A sophisticated **Retrieval-Augmented Generation (RAG)** Q&A chatbot for loan application analysis, built with modern AI technologies.
+A **smart Q&A chatbot** for loan application analysis, built with Streamlit and pandas for easy deployment and use.
 
 ## 🌐 Live Demo
 
@@ -10,22 +10,19 @@ A sophisticated **Retrieval-Augmented Generation (RAG)** Q&A chatbot for loan ap
 
 ## 🚀 Features
 
-- **Intelligent Q&A**: Ask questions about loan applications, approval rates, and patterns
-- **Document Retrieval**: Semantic search through loan application database
-- **Data Visualization**: Interactive charts and statistics
-- **Modern UI**: Beautiful Streamlit interface with real-time chat
-- **Vector Database**: ChromaDB for efficient document storage and retrieval
-- **Multiple LLM Support**: OpenAI GPT models with extensible architecture
+- **Smart Q&A**: Ask questions about loan applications, approval rates, and patterns
+- **Real-time Statistics**: Live dashboard with key metrics
+- **Interactive Chat**: Modern Streamlit interface with chat history
+- **Data Analysis**: Comprehensive insights from loan application data
+- **Easy Deployment**: Lightweight and works on any platform
+- **No External APIs**: Works completely offline
 
 ## 🛠️ Technology Stack
 
 - **Frontend**: Streamlit
-- **Vector Database**: ChromaDB
-- **Embeddings**: Sentence Transformers (all-MiniLM-L6-v2)
-- **LLM**: OpenAI GPT-3.5-turbo / GPT-4
 - **Data Processing**: Pandas, NumPy
-- **Visualization**: Plotly
-- **Framework**: LangChain
+- **Backend**: Python
+- **Deployment**: Streamlit Cloud
 
 ## 📊 Dataset
 
@@ -38,13 +35,11 @@ The system uses a comprehensive loan application dataset containing:
 
 ```
 rag_loan_chatbot/
-├── data_processor.py      # Data loading and preprocessing
-├── vector_store.py        # ChromaDB vector store operations
-├── rag_chatbot.py         # Main RAG chatbot logic
-├── streamlit_app.py       # Streamlit web application
-├── requirements.txt       # Python dependencies
-├── README.md             # This file
-└── .env                  # Environment variables (create this)
+├── simple_chatbot.py     # Main chatbot application
+├── streamlit_app.py      # Streamlit web application (legacy)
+├── requirements.txt      # Python dependencies
+├── README.md            # This file
+└── *.csv                # Loan dataset files
 ```
 
 ## ⚙️ Installation & Setup
@@ -60,29 +55,19 @@ cd your-repo-name/rag_loan_chatbot
 pip install -r requirements.txt
 ```
 
-### 2. Set Up Environment Variables
-
-Create a `.env` file in the project root:
+### 2. Run the Application
 
 ```bash
-OPENAI_API_KEY=your_openai_api_key_here
-```
-
-*Note: The system works without an API key using fallback responses.*
-
-### 3. Prepare Data
-
-Place your loan dataset files in the `../archive/` directory:
-- `Training Dataset.csv`
-- `Test Dataset.csv`
-
-### 4. Run the Application
-
-```bash
-streamlit run streamlit_app.py
+streamlit run simple_chatbot.py
 ```
 
 The application will be available at `http://localhost:8501`
+
+### 3. Prepare Data
+
+Make sure your loan dataset files are in the project directory:
+- `Training Dataset.csv`
+- `Test Dataset.csv`
 
 ## 🚀 Quick Deployment
 
@@ -93,15 +78,12 @@ The application will be available at `http://localhost:8501`
 3. **Connect your GitHub account**
 4. **Deploy with these settings:**
    - Repository: `your-username/your-repo-name`
-   - Main file path: `rag_loan_chatbot/streamlit_app.py`
+   - Main file path: `rag_loan_chatbot/simple_chatbot.py`
    - Python version: 3.9+
 
-5. **Add environment variables in Streamlit Cloud:**
-   - `OPENAI_API_KEY`: Your OpenAI API key (optional)
+5. **Update the demo link in README.md with your deployment URL**
 
-6. **Update the demo link in README.md with your deployment URL**
-
-For detailed deployment instructions, see [DEPLOYMENT.md](DEPLOYMENT.md).
+That's it! No environment variables needed.
 
 ## 💬 Usage Examples
 
