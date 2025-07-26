@@ -19,11 +19,51 @@ class SimpleLoanChatbot:
     def load_data(self, train_path: str, test_path: str):
         """Load and process the loan data."""
         try:
+            # Debug: Print current working directory and file paths
+            import os
+            print(f"Current working directory: {os.getcwd()}")
+            print(f"Looking for train file: {os.path.abspath(train_path)}")
+            print(f"Looking for test file: {os.path.abspath(test_path)}")
+            
+            # List files in current directory
+            print(f"Files in current directory: {os.listdir('.')}")
+            
             self.train_data = pd.read_csv(train_path)
             self.test_data = pd.read_csv(test_path)
             print(f"Loaded {len(self.train_data)} training samples and {len(self.test_data)} test samples")
         except Exception as e:
             st.error(f"Error loading data: {e}")
+            # Try alternative paths
+            try:
+                print("Trying alternative paths...")
+                # Try without ./ prefix
+                alt_train = train_path.replace('./', '')
+                alt_test = test_path.replace('./', '')
+                print(f"Trying: {alt_train}, {alt_test}")
+                
+                self.train_data = pd.read_csv(alt_train)
+                self.test_data = pd.read_csv(alt_test)
+                print(f"Successfully loaded with alternative paths!")
+            except Exception as e2:
+                st.error(f"Alternative path also failed: {e2}")
+                # Create dummy data for demo
+                st.warning("Using demo data since CSV files couldn't be loaded")
+                self.train_data = pd.DataFrame({
+                    'Loan_ID': ['LP001001', 'LP001002', 'LP001003'],
+                    'Gender': ['Male', 'Female', 'Male'],
+                    'Married': ['Yes', 'No', 'Yes'],
+                    'Dependents': ['0', '0', '1'],
+                    'Education': ['Graduate', 'Graduate', 'Not Graduate'],
+                    'Self_Employed': ['No', 'No', 'No'],
+                    'ApplicantIncome': [5849, 4583, 3000],
+                    'CoapplicantIncome': [0, 1508, 0],
+                    'LoanAmount': [146, 128, 66],
+                    'Loan_Amount_Term': [360, 360, 360],
+                    'Credit_History': [1, 1, 1],
+                    'Property_Area': ['Urban', 'Rural', 'Urban'],
+                    'Loan_Status': ['Y', 'N', 'Y']
+                })
+                self.test_data = self.train_data.copy()
             
     def get_statistics(self) -> Dict[str, Any]:
         """Get basic statistics about the dataset."""
