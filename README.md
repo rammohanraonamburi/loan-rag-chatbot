@@ -4,9 +4,9 @@ A **smart Q&A chatbot** for loan application analysis, built with Streamlit and 
 
 ## 🌐 Live Demo
 
-**[🚀 Try the Live Demo](https://your-demo-link-here.streamlit.app)**
+**[🚀 Try the Live Demo](https://loan-rag-chatbot-hjhcuunxvlqucyx8qyr7uw.streamlit.app)**
 
-*Note: Replace the link above with your actual deployment URL after deploying the application.*
+*The chatbot is now live and ready to answer your questions about loan applications!*
 
 ## 🚀 Features
 
