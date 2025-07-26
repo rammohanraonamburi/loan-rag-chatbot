@@ -177,8 +177,8 @@ def main():
     if 'chatbot' not in st.session_state:
         try:
             st.session_state.chatbot = SimpleLoanChatbot(
-                train_path="Training Dataset.csv",
-                test_path="Test Dataset.csv"
+                train_path="./Training Dataset.csv",
+                test_path="./Test Dataset.csv"
             )
             st.success("✅ Chatbot initialized successfully!")
         except Exception as e:
